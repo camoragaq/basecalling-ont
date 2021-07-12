@@ -19,9 +19,9 @@ MAINTAINER Carol Moraga <camoragaq@gmail.com>
 ################## INSTALLATION ######################
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-   python3-pip\
+   python3-pip python3-setuptools python3-wheel \
    wget \
-   ca-certificates \
+   ca-certificates
 #RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 #RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
 #ENV PATH /miniconda/bin:$PATH
@@ -36,5 +36,7 @@ RUN apt-get update \
 #RUN apt-get install -y git
 #RUN git clone https://github.com/esolares/HapSolo.git
 #RUN mv HapSolo /opt
-RUN pip install ont-bonito
+COPY requirements.txt /
+#RUN pip3 install -r /requirements.txt
+RUN pip3 install ont-bonito
 
